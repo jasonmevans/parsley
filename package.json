@@ -1,0 +1,22 @@
+{
+  "name": "parsley",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Jason Evans <505818+jasonmevans@users.noreply.github.com>",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@eslint/css": "^0.14.1",
+    "@eslint/js": "^9.39.2",
+    "@eslint/json": "^1.0.0",
+    "@eslint/markdown": "^7.5.1",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^17.3.0",
+    "prettier": "^3.8.1",
+    "prettier-eslint": "^16.4.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.54.0"
+  }
+}
