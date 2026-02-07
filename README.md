@@ -1,4 +1,4 @@
-# parsley 🥬
+# parsely 🥬
 
 This project is an exploration of parser combinators as explained by the YouTube channel [Low Byte Productions](https://www.youtube.com/@LowByteProductions) in their series [Parser Combinators From Scratch](https://youtube.com/playlist?list=PLP29wDx6QmW5yfO1LAgO8kU3aQEj8SIrU&si=NJylchjxZ5N3hpgM).
 
