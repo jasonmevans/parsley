@@ -1,0 +1,15 @@
+[
+  {
+    "name": "index",
+    "source": "./src/index.js",
+    "type": "module",
+    "global": "",
+    "outputDir": "dist",
+    "watchDir": "",
+    "target": ["es6"],
+    "bundle": true,
+    "minify": true,
+    "sourceMap": true,
+    "useEnvVariables": true
+  }
+]
