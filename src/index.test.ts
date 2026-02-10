@@ -5,7 +5,7 @@ describe('parsers', () => {
     expect(true).toBe(true);
     const parser = str('this string');
 
-    expect(parser('this is not correct')).toThrow();
-    expect(parser('this string')).toBe(true);
+    expect(() => parser('this is not correct')).toThrow(new Error('error'));
+    expect(parser('this string')).toBe('this string');
   });
 });

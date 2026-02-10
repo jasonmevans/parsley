@@ -14,7 +14,7 @@
     "test": "jest",
     "test:watch": "NODE_OPTIONS=\"--no-webstorage\" jest --watch",
     "dev": "build --dev",
-    "typecheck": "build:types --noEmit",
+    "typecheck": "yarn build:types --noEmit",
     "typecheck:watch": "typecheck --watch"
   },
   "simple-git-hooks": {
