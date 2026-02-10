@@ -17,6 +17,7 @@
     "noPropertyAccessFromIndexSignature": true,
 
     "strict": true,
+    "esModuleInterop": true,
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
