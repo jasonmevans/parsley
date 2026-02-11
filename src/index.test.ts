@@ -1,11 +1,11 @@
-import { str } from './index';
+import { str } from './';
 
-describe('parsers', () => {
-  it('should parse strings', () => {
-    expect(true).toBe(true);
-    const parser = str('this string');
+describe('Basic string parsers', () => {
+  it('should match a string', () => {
+    const parser = str('Hello there!');
 
-    expect(() => parser('this is not correct')).toThrow(new Error('error'));
-    expect(parser('this string')).toBe('this string');
+    expect(() => parser('This is not correct')).toThrow();
+
+    expect(parser('Hello there!')).toBe('Hello there!');
   });
 });
