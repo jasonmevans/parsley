@@ -1,7 +1,6 @@
 import js from '@eslint/js';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import pluginReact from 'eslint-plugin-react';
 import json from '@eslint/json';
 import markdown from '@eslint/markdown';
 import css from '@eslint/css';
@@ -27,7 +26,6 @@ export default defineConfig([
       '@typescript-eslint/no-explicit-any': 'warn',
     },
   },
-  pluginReact.configs.flat.recommended,
   {
     files: ['**/*.json'],
     plugins: {
@@ -43,6 +41,9 @@ export default defineConfig([
     },
     language: 'markdown/gfm',
     extends: ['markdown/recommended'],
+    rules: {
+      'markdown/no-missing-label-refs': 'warn',
+    },
   },
   {
     files: ['**/*.css'],

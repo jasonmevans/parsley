@@ -1,7 +1,4 @@
 export default {
-  '*.js': ['eslint --cache --fix'],
-  '*.ts': [
-    'eslint --cache --fix',
-    () => 'yarn typecheck --project tsconfig.json',
-  ],
+  '*.js': ['yarn lint:fix'],
+  '*.ts': ['yarn lint:fix', () => 'yarn typecheck --project tsconfig.json'],
 };
