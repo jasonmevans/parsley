@@ -1,6 +1,6 @@
-type Input = string;
+export type Input = string;
 
-type ParseResult<A> =
+export type ParseResult<A> =
   | {
       success: true;
       value: A;
@@ -13,80 +13,16 @@ type ParseResult<A> =
       error: string;
     };
 
-type Parser<A> = (input: Input) => ParseResult<A>;
+export type ParserFn<A> = (input: Input) => ParseResult<A>;
 
-export const str =
-  (expected: string): Parser<string> =>
-  (input: Input) => {
-    if (input.startsWith(expected)) {
-      return {
-        success: true,
-        value: expected,
-        remaining: input.slice(expected.length),
-        original: input,
-      };
-    }
+export type InferParserFnTuple<T extends ParserFn<any>[]> = {
+  [K in keyof T]: T[K] extends ParserFn<infer A> ? A : never;
+};
 
-    const received = input.slice(0, expected.length) || '<end of input>';
-    return {
-      success: false,
-      error: `Expected "${expected}", but received "${received}"`,
-      original: input,
-    };
-  };
+export { str } from './str';
+export { num } from './num';
+export { seq } from './seq';
 
-export const num =
-  (expected: number): Parser<number> =>
-  (input: Input) => {
-    const expectedStr = expected.toString();
-    if (input.startsWith(expectedStr)) {
-      return {
-        success: true,
-        value: expected,
-        remaining: input.slice(expectedStr.length),
-        original: input,
-      };
-    }
-
-    const received = input.slice(0, expectedStr.length) || '<end of input>';
-    return {
-      success: false,
-      error: `Expected "${expectedStr}", but received "${received}"`,
-      original: input,
-    };
-  };
-
-export const run = <A>(parser: Parser<A>, input: Input): ParseResult<A> => {
+export const run = <A>(parser: ParserFn<A>, input: Input): ParseResult<A> => {
   return parser(input);
 };
-
-type InferParserTuple<T extends Parser<any>[]> = {
-  [K in keyof T]: T[K] extends Parser<infer A> ? A : never;
-};
-
-export const sequenceOf =
-  <P extends [Parser<any>, ...Parser<any>[]]>(
-    ...parsers: P
-  ): Parser<InferParserTuple<P>> =>
-  (input: Input) => {
-    let remaining = input;
-    const values = [];
-
-    for (const parser of parsers) {
-      const result = parser(remaining);
-
-      if (!result.success) {
-        return result;
-      }
-
-      values.push(result.value);
-      remaining = result.remaining;
-    }
-
-    return {
-      success: true,
-      value: values as InferParserTuple<P>,
-      remaining,
-      original: input,
-    };
-  };
