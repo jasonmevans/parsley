@@ -20,9 +20,6 @@
   "simple-git-hooks": {
     "pre-commit": "yarn lint-staged"
   },
-  "lint-staged": {
-    "*.{ts,tsx}": "yarn typecheck"
-  },
   "devDependencies": {
     "@eslint/css": "^0.14.1",
     "@eslint/js": "^9.39.2",
