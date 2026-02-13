@@ -1,4 +1,4 @@
-import type { Input, ParserFn } from '.';
+import type { Input, ParserFn } from '..';
 
 export const str =
   (expected: string): ParserFn<string> =>

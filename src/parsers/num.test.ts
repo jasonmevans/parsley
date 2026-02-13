@@ -1,4 +1,4 @@
-import { num, run } from '.';
+import { num, run } from '..';
 
 describe('num', () => {
   it('should match a number', () => {

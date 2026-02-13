@@ -1,4 +1,4 @@
-import { run, str } from '.';
+import { run, str } from '..';
 
 describe('str', () => {
   it('should match a string', () => {

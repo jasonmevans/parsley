@@ -19,9 +19,9 @@ export type InferParserFnTuple<T extends ParserFn<any>[]> = {
   [K in keyof T]: T[K] extends ParserFn<infer A> ? A : never;
 };
 
-export { str } from './str';
-export { num } from './num';
-export { seq } from './seq';
+export { str } from './parsers/str';
+export { num } from './parsers/num';
+export { seq } from './parsers/seq';
 
 export const run = <A>(parser: ParserFn<A>, input: Input): ParseResult<A> => {
   return parser(input);

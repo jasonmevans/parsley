@@ -1,4 +1,4 @@
-import type { InferParserFnTuple, Input, ParserFn } from '.';
+import type { InferParserFnTuple, Input, ParserFn } from '..';
 
 export const seq =
   <P extends [ParserFn<any>, ...ParserFn<any>[]]>(

@@ -1,4 +1,4 @@
-import { num, run, seq, str } from '.';
+import { num, run, seq, str } from '..';
 
 describe('seq', () => {
   it('should process a sequence of parsers', () => {
